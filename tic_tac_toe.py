@@ -16,10 +16,7 @@ printBoard()
 
 pos = input("where? ")
 pos = int(pos)
-print(pos)
 
 row = int((pos - 1) / 3)
 column = ((pos - 1) % 3)
-print(row)
-print(column)
 print(board[row][column], row, column)
