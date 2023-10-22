@@ -22,7 +22,9 @@ while True: # Repeats forever
   try:
     pos = int(input(playerTurn + " is up, what square will you play? "))
   except ValueError: # if input cannot be converted to int
-    if pos == "stop":
+      print("Please enter a number")
+  else:
+    if pos == 0:
       print("")
       print("")
       print("")
@@ -31,24 +33,22 @@ while True: # Repeats forever
       printBoard(board)
       break # Stops the forever loop with the keyword
     else:
-      print("Please enter a number")
-  else:
-    row = int((pos - 1) / 3)
-    column = (pos - 1) % 3
-  
-    if pos in list(range(1,10)): # Checks if input is 1-9
+      row = int((pos - 1) / 3)
+      column = (pos - 1) % 3
+    
+      if pos in list(range(1,10)): # Checks if input is 1-9
 
-      if board[row][column] == " ": # Checks if the space has been played on
-        board[row][column] = playerTurn
+        if board[row][column] == " ": # Checks if the space has been played on
+          board[row][column] = playerTurn
 
-        printBoard(board)
+          printBoard(board)
 
-        # Switches playerTurn between "X" and "O"
-        if playerTurn == "X":
-          playerTurn = "O"
+          # Switches playerTurn between "X" and "O"
+          if playerTurn == "X":
+            playerTurn = "O"
+          else:
+            playerTurn = "X"
         else:
-          playerTurn = "X"
+          print(board[row][column], "is already there.")
       else:
-        print(board[row][column], "is already there.")
-    else:
-      print("Please enter a number that is 1-9.")
+        print("Please enter a number that is 1-9.")
